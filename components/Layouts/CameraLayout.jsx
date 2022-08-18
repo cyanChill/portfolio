@@ -1,5 +1,9 @@
-// Layout used for all other pages
-import { useRef } from "react";
+/* 
+  Description:
+    Layout used for all pages except for the blog pages (excluding the
+    /blog/preview route)
+*/
+import useLayoutAreaContext from "../../hooks/useLayoutAreaContext";
 
 import styles from "../../styles/CameraLayout.module.css";
 import CaptureCorner from "./LayoutAssets/CaptureCorner";
@@ -7,47 +11,26 @@ import BatteryIndicator from "./LayoutAssets/BatteryIndicator";
 import RecordingIndicator from "./LayoutAssets/RecordingIndicator";
 import PageNavControls from "../Navigation/PageNavControls";
 import NavMenu from "../Navigation/NavMenu";
+import CopyrightInfo from "../CopyrightInfo";
 
 const CameraLayout = ({ children }) => {
-  const contentAreaRef = useRef(null);
-
-  const handleNavigation = () => {
-    console.log("Going to next page...");
-
-    contentAreaRef.current.classList.add(styles.close);
-  };
+  const { contentAreaRef } = useLayoutAreaContext();
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         {/* Outer capture frame indicators */}
-        <div
-          className={styles.outerCorner}
-          style={{ gridArea: "1 / 1 / 2 / 2" }}
-          data-position="top-left"
-        >
+        <div className={styles.outerCorner} data-position="top-left">
           <RecordingIndicator />
         </div>
-        <div
-          className={styles.outerCorner}
-          style={{ gridArea: "1 / 3 / 2 / 4" }}
-          data-position="top-right"
-        >
+        <div className={styles.outerCorner} data-position="top-right">
           <BatteryIndicator />
         </div>
-        <div
-          className={styles.outerCorner}
-          style={{ gridArea: "3 / 3 / 4 / 4" }}
-          data-position="bottom-right"
-        >
-          <NavMenu handleNavigation={handleNavigation} />
+        <div className={styles.outerCorner} data-position="bottom-right">
+          <NavMenu />
         </div>
-        <div
-          className={styles.outerCorner}
-          style={{ gridArea: "3 / 1 / 4 / 2" }}
-          data-position="bottom-left"
-        >
-          <PageNavControls handleNavigation={handleNavigation} />
+        <div className={styles.outerCorner} data-position="bottom-left">
+          <PageNavControls />
         </div>
 
         <section
@@ -57,28 +40,20 @@ const CameraLayout = ({ children }) => {
         >
           {/* Content Area indicator */}
           <CaptureCorner
-            size="3rem"
-            thickness="3px"
             className="absolute"
             style={{ top: "var(--perm-space)", left: "var(--perm-space)" }}
           />
           <CaptureCorner
-            size="3rem"
-            thickness="3px"
             rotDeg={90}
             className="absolute"
             style={{ top: "var(--perm-space)", right: "var(--perm-space)" }}
           />
           <CaptureCorner
-            size="3rem"
-            thickness="3px"
             rotDeg={180}
             className="absolute"
             style={{ bottom: "var(--perm-space)", right: "var(--perm-space)" }}
           />
           <CaptureCorner
-            size="3rem"
-            thickness="3px"
             rotDeg={270}
             className="absolute"
             style={{ bottom: "var(--perm-space)", left: "var(--perm-space)" }}
@@ -87,8 +62,7 @@ const CameraLayout = ({ children }) => {
         </section>
       </div>
 
-      {/* Copyright info */}
-      <div className={styles.copyright}>© Copyright 2022, Anthony Liang</div>
+      <CopyrightInfo />
     </div>
   );
 };

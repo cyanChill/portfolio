@@ -1,1 +1,5 @@
-// Layout used for the blog when that feature is implemented
+/* 
+  Description:
+    Layout used for the blog pages (excluding the /blog/preview route)
+    once this feature is implemented
+*/

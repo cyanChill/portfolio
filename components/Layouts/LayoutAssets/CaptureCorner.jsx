@@ -1,8 +1,8 @@
 import styles from "../../../styles/LayoutAssets.module.css";
 
 const CaptureCorner = ({
-  size = "1rem",
-  thickness = "2px",
+  size = "3rem",
+  thickness = "3px",
   rotDeg = 0,
   className,
   style,
