@@ -1,0 +1,120 @@
+.container {
+  --bdr-dist: 0.75rem;
+  --bdr-thickness: 4px;
+  --corner-length: calc(4rem / 1.25);
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: var(--max-app-width);
+  max-height: var(--max-app-height);
+  display: grid;
+  grid-template-columns: var(--corner-length) auto var(--corner-length);
+  grid-template-rows: var(--corner-length) auto var(--corner-length);
+  padding: var(--bdr-dist);
+
+  background: hsl(var(--primary-bkg));
+}
+
+/* Indicates the area of the "frame" */
+.outerCorner {
+  display: flex;
+  padding: 4px;
+  border: calc(var(--bdr-thickness) / 1.5) solid hsl(var(--off-white));
+}
+
+.outerCorner[data-position="top-left"] {
+  border-right: 0;
+  border-bottom: 0;
+}
+.outerCorner[data-position="top-right"] {
+  justify-content: flex-end;
+  border-left: 0;
+  border-bottom: 0;
+}
+.outerCorner[data-position="bottom-right"] {
+  justify-content: flex-end;
+  align-items: flex-end;
+  border-left: 0;
+  border-top: 0;
+}
+.outerCorner[data-position="bottom-left"] {
+  align-items: flex-end;
+  border-right: 0;
+  border-top: 0;
+}
+
+/* Where the actual page content will be located */
+.contentArea {
+  --delay: 0.25s;
+
+  position: relative;
+  grid-area: 2 / 1 / 3 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--bdr-dist);
+}
+
+.contentArea::before,
+.contentArea::after {
+  content: "";
+  position: absolute;
+  width: calc(100% - (2 * var(--perm-space)));
+  height: calc(50% - var(--perm-space));
+  animation: open 1.5s forwards;
+  animation-delay: var(--delay);
+  background: hsl(var(--primary-bkg));
+  border-bottom: 1px solid hsl(var(--grey-300) / 15%);
+}
+
+.contentArea::before {
+  top: var(--perm-space);
+}
+
+.contentArea::after {
+  bottom: var(--perm-space);
+  transform: rotate(180deg);
+}
+
+.contentArea.close::before,
+.contentArea.close::after {
+  animation: close 1.5s forwards;
+}
+
+@media (min-width: 568px) {
+  .container {
+    --bdr-dist: 1rem;
+    --corner-length: 4rem;
+  }
+
+  .outerCorner {
+    border: var(--bdr-thickness) solid hsl(var(--off-white));
+  }
+
+  .contentArea {
+    grid-area: 2 / 2 / 3 / 3;
+  }
+}
+
+@keyframes open {
+  from {
+    height: calc(50% - var(--perm-space));
+    border-bottom: 1px solid hsl(var(--grey-300) / 15%);
+  }
+  to {
+    height: 0;
+    border-bottom: 0px solid transparent;
+  }
+}
+
+@keyframes close {
+  from {
+    height: 0;
+    border-bottom: 0px solid transparent;
+  }
+  to {
+    height: calc(50% - var(--perm-space));
+    border-bottom: 1px solid hsl(var(--grey-300) / 15%);
+  }
+}

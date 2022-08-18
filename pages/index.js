@@ -1,5 +1,5 @@
-import styles from "../styles/Home.module.css";
-
-export default function Home() {
+const Home = () => {
   return <div>Hello World</div>;
-}
+};
+
+export default Home;

@@ -1,0 +1,71 @@
+/* For NavMenu Component */
+.navMenuContainer {
+  position: relative;
+}
+
+.navMenuContainer > p {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  user-select: none;
+}
+
+.navMenuContainer > p:hover {
+  cursor: pointer;
+}
+
+.menuItems {
+  z-index: 100;
+  position: absolute;
+  bottom: 1.75rem;
+  right: 0;
+  padding: 0.5rem;
+  background-color: hsl(var(--black-500));
+  list-style: none;
+  opacity: 0;
+}
+
+.menuItems > li {
+  cursor: pointer;
+}
+
+.menuItems[data-visible="true"] {
+  opacity: 1;
+}
+
+@media (min-width: 568px) {
+}
+
+/* For PageNavControls Component */
+.navControlsContainer {
+  --txtSize: 1rem;
+
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: var(--txtSize);
+}
+
+.navControlsContainer > * {
+  flex-shrink: 0;
+}
+
+.navControlsContainer > span {
+  user-select: none;
+}
+
+.icon:hover {
+  cursor: pointer;
+}
+
+.icon[data-disable="true"] {
+  pointer-events: none;
+  color: hsl(var(--grey-400));
+}
+
+@media (min-width: 568px) {
+  .navControlsContainer {
+    --txtSize: 1.25rem;
+  }
+}

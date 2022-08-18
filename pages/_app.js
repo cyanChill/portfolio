@@ -1,7 +1,16 @@
-import '../styles/globals.css'
+import "../styles/globals.css";
+import SEO from "../components/Optimizations/SEO";
+import CameraLayout from "../components/Layouts/CameraLayout";
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
-}
+const MyApp = ({ Component, pageProps }) => {
+  return (
+    <>
+      <SEO />
+      <CameraLayout>
+        <Component {...pageProps} />
+      </CameraLayout>
+    </>
+  );
+};
 
-export default MyApp
+export default MyApp;

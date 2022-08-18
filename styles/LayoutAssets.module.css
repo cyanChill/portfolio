@@ -1,0 +1,93 @@
+.flashing {
+  --delay: 0s;
+  --duration: 2s;
+  animation: flashing var(--duration) infinite alternate;
+  animation-delay: var(--delay);
+}
+
+@keyframes flashing {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* For CaptureCorner Component */
+.captureCorner {
+  z-index: 1;
+  width: calc(var(--size) / 1.5);
+  height: calc(var(--size) / 1.5);
+  border-top: calc(var(--thickness) / 1.5) solid hsl(var(--off-white));
+  border-left: calc(var(--thickness) / 1.5) solid hsl(var(--off-white));
+}
+
+@media (min-width: 568px) {
+  .captureCorner {
+    width: var(--size);
+    height: var(--size);
+
+    border-width: var(--thickness);
+  }
+}
+
+/* For BatteryIndicator Component */
+.batteryIndicator {
+  --width: 3rem;
+  --bdr-thickness: 3px;
+  --battery-bdr-rad: 3px;
+  --gap: max(1px, calc(var(--width) * 0.015));
+
+  height: calc(var(--width) / 2);
+  width: var(--width);
+  display: grid;
+  grid-template-columns: 1fr 9fr;
+}
+
+.batteryTerminal {
+  align-self: center;
+  height: calc(var(--width) / 3);
+  border: var(--bdr-thickness) solid hsl(var(--off-white));
+  border-right: 0;
+  border-top-left-radius: var(--battery-bdr-rad);
+  border-bottom-left-radius: var(--battery-bdr-rad);
+}
+
+.batteryContainer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--gap);
+  padding: var(--gap);
+  border: var(--bdr-thickness) solid hsl(var(--off-white));
+  border-radius: var(--battery-bdr-rad);
+}
+
+.batteryBar {
+  width: calc((100% - (var(--gap) * 5)) / 4);
+  border-radius: var(--battery-bdr-rad);
+  background-color: hsl(var(--battery-green));
+}
+
+/* For RecordingIndicator Component */
+.recIndicator {
+  --diameter: 0.6rem;
+  --txtSize: 1.25rem;
+
+  height: max-content;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.recCircle {
+  width: var(--diameter);
+  height: var(--diameter);
+  background-color: hsl(var(--red-500));
+  border-radius: 50%;
+}
+
+.recIndicator > span {
+  user-select: none;
+  font-size: var(--txtSize);
+}
