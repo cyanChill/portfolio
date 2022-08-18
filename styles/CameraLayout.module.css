@@ -1,3 +1,13 @@
+.wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
 .container {
   --bdr-dist: 0.75rem;
   --bdr-thickness: 4px;
@@ -8,12 +18,19 @@
   height: 100%;
   max-width: var(--max-app-width);
   max-height: var(--max-app-height);
+
   display: grid;
   grid-template-columns: var(--corner-length) auto var(--corner-length);
   grid-template-rows: var(--corner-length) auto var(--corner-length);
   padding: var(--bdr-dist);
 
+  overflow: hidden;
   background: hsl(var(--primary-bkg));
+}
+
+.copyright {
+  text-align: center;
+  font-size: clamp(0.75rem, 3vw, 1rem);
 }
 
 /* Indicates the area of the "frame" */
@@ -56,6 +73,7 @@
   padding: var(--bdr-dist);
 }
 
+/* Creating an opening & closing animation */
 .contentArea::before,
 .contentArea::after {
   content: "";
