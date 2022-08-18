@@ -1,6 +1,9 @@
 /* For NavMenu Component */
 .navMenuContainer {
+  --txtSize: 1rem;
+
   position: relative;
+  font-size: var(--txtSize);
 }
 
 .navMenuContainer > p {
@@ -34,6 +37,9 @@
 }
 
 @media (min-width: 568px) {
+  .navMenuContainer {
+    --txtSize: 1.25rem;
+  }
 }
 
 /* For PageNavControls Component */
