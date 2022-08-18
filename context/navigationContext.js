@@ -66,7 +66,7 @@ const NavigationContextProvider = ({ children }) => {
       const pageentry = pagesData[state.idx];
       if (pageentry) router.push(pageentry.path);
     }
-  }, [state]);
+  }, [state]); // eslint-disable-line
 
   return (
     <NavigationContext.Provider value={{ ...state, dispatch }}>
