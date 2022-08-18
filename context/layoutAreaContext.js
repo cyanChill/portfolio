@@ -29,7 +29,7 @@ const LayoutAreaProvider = ({ children }) => {
       contentAreaRef.current.classList.remove(styles.close);
       if (location) {
         dispatch({ type: "SET_LOCATION", payload: { path: location } });
-      } else if (idx !== null) {
+      } else if (idx != null) {
         dispatch({ type: "SET_INDEX", payload: { idx: idx } });
       }
       setLoading(false);

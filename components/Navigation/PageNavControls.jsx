@@ -19,7 +19,7 @@ const PageNavControls = () => {
     <div className={styles.navControlsContainer}>
       <IoCaretBackCircle
         className={styles.icon}
-        data-disable={loading || idx === 0 || idx === null}
+        data-disable={loading || idx === 0 || idx == null}
         onClick={() => updateView(-1)}
       />
       <span>
@@ -27,7 +27,7 @@ const PageNavControls = () => {
       </span>
       <IoCaretForwardCircle
         className={styles.icon}
-        data-disable={loading || idx === numPages - 1 || idx === null}
+        data-disable={loading || idx === numPages - 1 || idx == null}
         onClick={() => updateView(1)}
       />
     </div>
