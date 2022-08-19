@@ -90,4 +90,5 @@
 .recIndicator > span {
   user-select: none;
   font-size: var(--txtSize);
+  font-family: var(--font-family-sans);
 }

@@ -7,7 +7,9 @@ const About = () => {
     <div className={styles.wrapper}>
       <div className={styles.about}>
         <div className={styles.aboutContent}>
-          <h1>About Me</h1>
+          <h1 className="glitch-v2" data-val="About Me">
+            <span>About Me</span>
+          </h1>
 
           <p className={styles.aboutBkg}>
             Introduced to the world of web development in my first year as a
@@ -24,13 +26,12 @@ const About = () => {
           <p>
             I work with <strong>React</strong>, <strong>NextJS</strong>,{" "}
             <strong>JavaScript (ES6+)</strong>, <strong>CSS</strong>, and{" "}
-            <strong>HTML</strong> to create a great user experience. I also
+            <strong>HTML</strong> to create a great user experience. I also{" "}
             learned how to use <strong>Firebase</strong> and{" "}
             <strong>MongoDB</strong> as backend databases and{" "}
-            <strong>NodeJS</strong> and <strong>Express</strong>
-            for the backend experience. I&apos;ve also used{" "}
-            <strong>NextJS</strong> to create an all-in-one fullstack
-            application.
+            <strong>NodeJS</strong> and <strong>Express</strong> for the backend
+            experience. I&apos;ve also used <strong>NextJS</strong> to create an{" "}
+            all-in-one fullstack application.
           </p>
         </div>
       </div>

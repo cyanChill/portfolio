@@ -7,7 +7,7 @@ const ErrorPage = () => {
 
   return (
     <div className={styles.wrapper}>
-      <h1 className="stack" style={{ "--stacks": 3, "--dur": "2.75s" }}>
+      <h1 className="glitch-stack" style={{ "--stacks": 3, "--dur": "2.75s" }}>
         <span style={{ "--index": 1 }}>Signal Lost</span>
         <span style={{ "--index": 2 }}>Signal Lost</span>
         <span style={{ "--index": 3 }}>Signal Lost</span>

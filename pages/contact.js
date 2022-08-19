@@ -41,7 +41,9 @@ const Contact = () => {
 
   return (
     <div className={styles.wrapper}>
-      <h1>Contact</h1>
+      <h1 className="glitch-v2" data-val="Contact">
+        <span>Contact</span>
+      </h1>
       <p className={styles.msg}>
         I&apos;m currently looking for a role as a full-stack developer. If you
         have any questions, an offer, or want to chat, send an email or message

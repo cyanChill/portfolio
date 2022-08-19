@@ -6,6 +6,10 @@
   font-size: var(--txtSize);
 }
 
+.navMenuContainer * {
+  font-family: var(--font-family-sans);
+}
+
 .navMenuContainer > p {
   display: flex;
   align-items: center;
@@ -53,6 +57,10 @@
   align-items: center;
   gap: 0.25rem;
   font-size: var(--txtSize);
+}
+
+.navControlsContainer * {
+  font-family: var(--font-family-sans);
 }
 
 .navControlsContainer > * {

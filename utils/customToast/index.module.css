@@ -10,10 +10,6 @@
   opacity: 0;
 }
 
-.toastContainer * {
-  font-family: var(--font-family-mono);
-}
-
 .toastContainer.animateEnter {
   animation: enter 500ms ease-in-out 1 forwards;
 }
