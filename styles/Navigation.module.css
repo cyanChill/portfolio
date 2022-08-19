@@ -26,6 +26,7 @@
   background-color: hsl(var(--black-500));
   list-style: none;
   opacity: 0;
+  visibility: hidden;
 }
 
 .menuItems > li {
@@ -33,6 +34,7 @@
 }
 
 .menuItems[data-visible="true"] {
+  visibility: visible;
   opacity: 1;
 }
 

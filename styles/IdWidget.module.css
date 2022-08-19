@@ -1,0 +1,17 @@
+.widget {
+  width: 5.75rem;
+  height: 4.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border: 2px solid hsl(var(--off-white));
+}
+
+.widget > p {
+  font-size: clamp(0.85rem, 3vw, 0.9rem);
+}

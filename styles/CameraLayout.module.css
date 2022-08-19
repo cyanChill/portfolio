@@ -25,7 +25,6 @@
   padding: var(--bdr-dist);
 
   overflow: hidden;
-  background: hsl(var(--primary-bkg));
 }
 
 /* Indicates the area of the "frame" */
@@ -64,12 +63,18 @@
 .contentArea {
   --delay: 0.25s;
 
+  overflow: hidden;
   position: relative;
   grid-area: 2 / 1 / 3 / 4;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: var(--bdr-dist);
+}
+
+.contentArea > * {
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 /* Creating an opening & closing animation */
