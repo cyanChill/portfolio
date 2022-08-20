@@ -1,6 +1,7 @@
 export const pagesData = [
   { id: "home", path: "/" },
   { id: "about", path: "/about" },
+  { id: "project", path: "/projects" },
   // Start of Project Pages
   { id: "odinworks", path: "/projects/odinworks" },
   { id: "next-instagram", path: "/projects/next-instagram" },

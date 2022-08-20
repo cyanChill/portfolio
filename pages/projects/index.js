@@ -8,8 +8,11 @@ const Project = () => {
 
   return (
     <div className={styles.wrapper}>
-      <h1 className={`glitch-v2 ${styles.pgTitle}`} data-val="All Projects">
-        <span>All Projects</span>
+      <h1
+        className={`glitch-v2 ${styles.pgTitle}`}
+        data-val="Project Quick Navigation"
+      >
+        <span>Project Quick Navigation</span>
       </h1>
 
       <div className={styles.projContainer}>

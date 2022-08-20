@@ -34,7 +34,7 @@ const NavMenu = () => {
       <ul className={styles.menuItems} data-visible={menuOpen}>
         <li onClick={() => handlePageSwitching("/")}>Home</li>
         <li onClick={() => handlePageSwitching("/about")}>About</li>
-        <li onClick={() => handlePageSwitching(null, 2)}>Projects</li>
+        <li onClick={() => handlePageSwitching("/projects")}>Projects</li>
         <li onClick={() => handlePageSwitching("/blog/preview")}>Blog</li>
         <li onClick={() => handlePageSwitching("/contact")}>Contact</li>
       </ul>
