@@ -1,6 +1,6 @@
 import styles from "../styles/About.module.css";
 import { technologies } from "../data";
-import IdWidget from "../components/identifiers/IdWidget";
+import IdWidget from "../components/Identifiers/IdWidget";
 
 const About = () => {
   return (
