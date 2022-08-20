@@ -1,26 +1,30 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
+import Error404Page from "../404";
 
-import styles from "../../styles/Project.module.css";
+import styles from "../../styles/ProjectDetail.module.css";
 import { projectsData, technologiesObj } from "../../data";
 import IdTag from "../../components/Identifiers/IdTag";
 import FormButton from "../../components/FormElements/FormButton";
 
-const Project = () => {
+const ProjectDetail = () => {
   const router = useRouter();
 
   const [projectInfo, setProjectInfo] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (router.query.slug && router.query.slug[0]) {
-      setProjectInfo(projectsData[router.query.slug[0]]);
+    setProjectInfo(null);
+    if (router.query.projName) {
+      setProjectInfo(projectsData[router.query.projName]);
     }
+    setLoading(false);
   }, [router]);
 
-  if (!projectInfo) {
-    return <div>Loading...</div>;
-  }
+  // Handling page info
+  if (loading) return <div>Loading...</div>;
+  if (!projectInfo) return <Error404Page />;
 
   return (
     <div
@@ -116,4 +120,4 @@ const Project = () => {
   );
 };
 
-export default Project;
+export default ProjectDetail;
