@@ -7,6 +7,7 @@ import styles from "../../styles/ProjectDetail.module.css";
 import { projectsData, technologiesObj } from "../../data";
 import IdTag from "../../components/Identifiers/IdTag";
 import FormButton from "../../components/FormElements/FormButton";
+import LoadingSpinner from "../../components/LoadingSpinner";
 
 const ProjectDetail = () => {
   const router = useRouter();
@@ -15,6 +16,7 @@ const ProjectDetail = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     setProjectInfo(null);
     if (router.query.projName) {
       setProjectInfo(projectsData[router.query.projName]);
@@ -23,7 +25,7 @@ const ProjectDetail = () => {
   }, [router]);
 
   // Handling page info
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <LoadingSpinner />;
   if (!projectInfo) return <Error404Page />;
 
   return (

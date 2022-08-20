@@ -31,7 +31,6 @@ const Contact = () => {
       body: encode({ "form-name": "contact", ...contactInfo }),
     })
       .then((res) => {
-        console.log("response from client-side", res);
         customToast("success", "Successfully submited form.");
         setContactInfo(DEFAULT_CONTACT_FORM);
       })
