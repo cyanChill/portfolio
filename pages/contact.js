@@ -3,7 +3,8 @@ import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from "react-icons/ai";
 
 import styles from "../styles/Contact.module.css";
 import { customToast } from "../utils/customToast";
-import FancyInput from "../components/FancyInput";
+import FancyInput from "../components/FormElements/FancyInput";
+import FormButton from "../components/FormElements/FormButton";
 
 const encode = (data) => {
   return Object.keys(data)
@@ -82,9 +83,9 @@ const Contact = () => {
             }
           />
 
-          <button type="submit" className={styles.submissionBtn}>
-            Send
-          </button>
+          <FormButton type="submit" className={styles.submissionBtn}>
+            <span>Send</span>
+          </FormButton>
         </form>
       </div>
     </div>

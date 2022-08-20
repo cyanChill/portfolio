@@ -1,6 +1,6 @@
 import styles from "../styles/About.module.css";
 import { technologies } from "../data";
-import IdWidget from "../components/IdWidget";
+import IdWidget from "../components/identifiers/IdWidget";
 
 const About = () => {
   return (
@@ -50,24 +50,6 @@ const About = () => {
           <p>Backend Technologies</p>
           <div>
             {technologies.backend.map((tech) => (
-              <IdWidget key={tech.name} {...tech} />
-            ))}
-          </div>
-        </section>
-
-        <section className={styles.technology}>
-          <p>Database Technologies</p>
-          <div>
-            {technologies.database.map((tech) => (
-              <IdWidget key={tech.name} {...tech} />
-            ))}
-          </div>
-        </section>
-
-        <section className={styles.technology}>
-          <p>Hosting Providers Technologies</p>
-          <div>
-            {technologies.hosting.map((tech) => (
               <IdWidget key={tech.name} {...tech} />
             ))}
           </div>

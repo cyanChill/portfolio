@@ -1,27 +1,27 @@
 import toast from "react-hot-toast";
 import { AiFillCheckCircle, AiFillCloseCircle } from "react-icons/ai";
 
-import style from "./index.module.css";
+import styles from "./index.module.css";
 
 export const customToast = (type, message) => {
   toast.custom(
     (t) => {
       return (
         <div
-          className={`${t.visible ? style.animateEnter : style.animateLeave} ${
-            style.toastContainer
-          }`}
+          className={`${
+            t.visible ? styles.animateEnter : styles.animateLeave
+          } ${styles.toastContainer}`}
         >
-          <div className={style.msgContainer}>
+          <div className={styles.msgContainer}>
             {(type === "success" || type === "error") &&
               (type === "success" ? (
                 <AiFillCheckCircle
-                  className={style.icon}
+                  className={styles.icon}
                   style={{ color: "hsl(var(--lime-400))" }}
                 />
               ) : (
                 <AiFillCloseCircle
-                  className={style.icon}
+                  className={styles.icon}
                   style={{ color: "hsl(var(--red-500))" }}
                 />
               ))}
@@ -30,7 +30,7 @@ export const customToast = (type, message) => {
 
           <button
             onClick={() => toast.dismiss(t.id)}
-            className={style.closeBtn}
+            className={styles.closeBtn}
           >
             Close
           </button>

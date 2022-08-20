@@ -1,6 +1,6 @@
 .widget {
-  width: 5.75rem;
-  height: 4.75rem;
+  width: 5.25rem;
+  height: 5.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,8 +10,30 @@
   padding: 0.5rem;
   border-radius: 0.5rem;
   border: 2px solid hsl(var(--off-white));
+  overflow: hidden;
+}
+
+.imgContainer {
+  width: 24px;
+  height: 24px;
 }
 
 .widget > p {
-  font-size: clamp(0.85rem, 3vw, 0.9rem);
+  font-size: clamp(0.75rem, 3vw, 0.85rem);
+}
+
+@media (min-width: 568px) {
+  .widget {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  .imgContainer {
+    width: 42px;
+    height: 42px;
+  }
+
+  .widget > p {
+    font-size: clamp(0.85rem, 3vw, 0.9rem);
+  }
 }

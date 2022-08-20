@@ -7,7 +7,13 @@ const RecordingIndicator = ({ className, style }) => {
         className={`${styles.recCircle} ${styles.flashing}`}
         style={{ "--duration": "1.5s" }}
       />
-      <span>REC</span>
+      <span
+        className="glitch-v2"
+        data-val="REC"
+        style={{ "--ff": "var(--font-family-sans)", "--dur": "1s" }}
+      >
+        <span>REC</span>
+      </span>
     </div>
   );
 };

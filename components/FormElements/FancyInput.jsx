@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-import styles from "../styles/FancyInput.module.css";
+import styles from "../../styles/FancyInput.module.css";
 
 const FancyInput = ({ className, labelText, ...rest }) => {
   const [isFocused, setIsFocused] = useState(false);

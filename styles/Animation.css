@@ -71,8 +71,8 @@
   --shiftX: 1px;
   --skew: 5deg;
   --ff: var(--font-family-mono);
-  width: max-content;
   position: relative;
+  word-break: break-all;
   animation: glitchv2 var(--dur) linear infinite;
 }
 
