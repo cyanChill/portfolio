@@ -54,6 +54,7 @@ const NavigationContextProvider = ({ children }) => {
       router.asPath.match(/(^\/blog$|^\/blog\/.*$)/) &&
       !router.asPath.match(/\/blog\/preview/)
     ) {
+      setInitLoad(false);
       return;
     }
 
