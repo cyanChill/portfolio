@@ -10,7 +10,7 @@ const BlogPost = () => {
     console.log(router.query.slug);
   }, [router]);
 
-  return <div className={styles.wrapper}>BlogPost Page</div>;
+  return <div className={styles.wrapper}>BlogPost Page Coming Soon...</div>;
 };
 
 export default BlogPost;
