@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import styles from "../../styles/Blog.module.css";
 import PostPreview from "../../components/Blog/PostPreview";
 import LoadingSpinner from "../../components/LoadingSpinner";
+import SEO from "../../components/Optimizations/SEO";
 
 const Blog = ({ posts: postsJSON }) => {
   const [posts, setPosts] = useState(null);
@@ -14,16 +15,23 @@ const Blog = ({ posts: postsJSON }) => {
   if (!posts) return <LoadingSpinner />;
 
   return (
-    <div className={styles.wrapper}>
-      {posts.map((post, idx) => (
-        <PostPreview
-          key={post._id}
-          postData={post}
-          className="appear-anim"
-          style={{ "--delay": `${(idx + 1) * 500}ms`, opacity: 0 }}
-        />
-      ))}
-    </div>
+    <>
+      <SEO
+        pageName="All Blog Posts"
+        description="A list of all blog posts I've made."
+      />
+
+      <div className={styles.wrapper}>
+        {posts.map((post, idx) => (
+          <PostPreview
+            key={post._id}
+            postData={post}
+            className="appear-anim"
+            style={{ "--delay": `${(idx + 1) * 500}ms`, opacity: 0 }}
+          />
+        ))}
+      </div>
+    </>
   );
 };
 

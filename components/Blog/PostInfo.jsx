@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-import styles from '../../styles/PostInfo.module.css'
+import styles from "../../styles/PostInfo.module.css";
 
-const PostInfo = ({ date }) => {
+const PostInfo = ({ date, spaceBetween }) => {
   return (
     <div className={styles.postInfo}>
       <div className={styles.profilePic}>
@@ -16,7 +16,7 @@ const PostInfo = ({ date }) => {
       </div>
       <span>Anthony Liang</span>
 
-      <p>{date}</p>
+      <p className={spaceBetween ? styles.spaceBetween : null}>{date}</p>
     </div>
   );
 };

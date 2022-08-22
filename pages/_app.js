@@ -20,7 +20,6 @@ const MyApp = ({ Component, pageProps }) => {
   return (
     <NavigationContextProvider>
       <LayoutAreaProvider>
-        <SEO />
         <Toaster
           position="bottom center"
           toastOptions={{ style: { width: "max-content", maxWidth: "45rem" } }}

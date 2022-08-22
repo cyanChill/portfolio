@@ -32,7 +32,7 @@ const PostPreview = ({ postData, className, style }) => {
 
       <p className={styles.excerpt}>{postData.excerpt}</p>
 
-      <PostInfo date={postDateFormat(postData.date)} />
+      <PostInfo date={postDateFormat(postData.date)} spaceBetween />
     </div>
   );
 };
