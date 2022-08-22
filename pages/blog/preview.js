@@ -43,9 +43,20 @@ const BlogPreview = () => {
         </div>
       ) : (
         <>
-          <h1 className="glitch-v2" data-val="Recent Blog Posts">
-            <span>Recent Blog Posts</span>
-          </h1>
+          <div className={styles.header}>
+            <h1 className="glitch-v2" data-val="Recent Blog Posts">
+              <span>Recent Blog Posts</span>
+            </h1>
+
+            <div className={styles.action}>
+              <FormButton isLink href="/blog">
+                <span className={styles.more}>
+                  See all blog posts <FiExternalLink />
+                </span>
+              </FormButton>
+            </div>
+          </div>
+
           <div className={styles.postsContainer}>
             {posts.map((pst, idx) => (
               <PostPreview
@@ -55,14 +66,6 @@ const BlogPreview = () => {
                 style={{ "--delay": `${(idx + 1) * 500}ms`, opacity: 0 }}
               />
             ))}
-          </div>
-
-          <div className={styles.action}>
-            <FormButton isLink href="/blog">
-              <span className={styles.more}>
-                See all blog posts <FiExternalLink />
-              </span>
-            </FormButton>
           </div>
         </>
       )}
