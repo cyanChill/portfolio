@@ -5,10 +5,17 @@ const useLoadingTransition = () => {
   const router = useRouter();
 
   const [loading, setLoading] = useState(false);
+  const [nextUrl, setNextUrl] = useState("")
 
   useEffect(() => {
-    const handleStart = (url) => url !== router.asPath && setLoading(true);
-    const handleComplete = (url) => url === router.asPath && setLoading(false);
+    const handleStart = (url) => {
+      setNextUrl(url);
+      return url !== router.asPath && setLoading(true);
+    };
+    const handleComplete = (url) => {
+      setNextUrl(url);
+      return url === router.asPath && setLoading(false);
+    };
 
     router.events.on("routeChangeStart", handleStart);
     router.events.on("routeChangeComplete", handleComplete);
@@ -21,7 +28,7 @@ const useLoadingTransition = () => {
     };
   }, [router]); // eslint-disable-line
 
-  return { loading };
+  return { loading, nextUrl };
 };
 
 export default useLoadingTransition;

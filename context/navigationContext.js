@@ -7,7 +7,6 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 import { pagesData } from "../data";
-import { isPathBlogSection } from "../utils/routingHelper";
 
 const NavigationReducer = (state, action) => {
   switch (action.type) {
@@ -34,6 +33,9 @@ const NavigationReducer = (state, action) => {
       }
       return { ...state, idx: action.payload.idx };
 
+    case "TO_BLOG_POST":
+      
+
     default:
       return state;
   }
@@ -50,12 +52,6 @@ const NavigationContextProvider = ({ children }) => {
   const [initLoad, setInitLoad] = useState(true);
 
   useEffect(() => {
-    // Ignore the blog-pages (excluding the blog preview)
-    if (isPathBlogSection(router.asPath)) {
-      setInitLoad(false);
-      return;
-    }
-
     dispatch({ type: "SET_LOCATION", payload: { path: router.asPath } });
     setInitLoad(false);
   }, [router.asPath]);

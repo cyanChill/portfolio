@@ -7,15 +7,11 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { BsHouse, BsHouseFill } from "react-icons/bs";
-import LoadingSpinner from "../LoadingSpinner";
-
-import useLoadingTransition from "../../hooks/useLoadingTransition";
 
 import styles from "../../styles/FileSystemLayout.module.css";
 
 const FileSystemLayout = ({ children }) => {
   const router = useRouter();
-  const { loading } = useLoadingTransition();
 
   const [crumbs, setCrumbs] = useState([]);
 
@@ -30,46 +26,38 @@ const FileSystemLayout = ({ children }) => {
   }, [router]);
 
   return (
-    <>
-      <div className={`${styles.loading} ${loading && styles.active}`}>
-        <LoadingSpinner />
-      </div>
+    <div className={styles.container}>
+      <div className={styles.wrapper}>
+        {/* Breadcrumb nav */}
+        <nav className={styles.fsNav}>
+          <div className={styles.homeBtn}>
+            <BsHouse onClick={goHome} />
+            <BsHouseFill onClick={goHome} />
+          </div>
 
-      <div className={styles.container}>
-        <div className={styles.wrapper}>
-          {/* Breadcrumb nav */}
-          <nav className={styles.fsNav}>
-            <div className={styles.homeBtn}>
-              <BsHouse onClick={goHome} />
-              <BsHouseFill onClick={goHome} />
-            </div>
-
-            <div className={styles.breadCrumbs}>
-              {crumbs.map((pathSeg, idx) => {
-                return idx === crumbs.length - 1 ? (
-                  <span key={idx} className={styles.currPath}>
+          <div className={styles.breadCrumbs}>
+            {crumbs.map((pathSeg, idx) => {
+              return idx === crumbs.length - 1 ? (
+                <span key={idx} className={styles.currPath}>
+                  {pathSeg === "" ? "Home" : pathSeg}
+                </span>
+              ) : (
+                <span key={idx}>
+                  <Link
+                    href={idx === 0 ? "/" : crumbs.slice(0, idx + 1).join("/")}
+                  >
                     {pathSeg === "" ? "Home" : pathSeg}
-                  </span>
-                ) : (
-                  <span key={idx}>
-                    <Link
-                      href={
-                        idx === 0 ? "/" : crumbs.slice(0, idx + 1).join("/")
-                      }
-                    >
-                      {pathSeg === "" ? "Home" : pathSeg}
-                    </Link>{" "}
-                    /{" "}
-                  </span>
-                );
-              })}
-            </div>
-          </nav>
+                  </Link>{" "}
+                  /{" "}
+                </span>
+              );
+            })}
+          </div>
+        </nav>
 
-          <div className={styles.contentArea}>{children}</div>
-        </div>
+        <div className={styles.contentArea}>{children}</div>
       </div>
-    </>
+    </div>
   );
 };
 
