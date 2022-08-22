@@ -15,8 +15,13 @@ const Blog = ({ posts: postsJSON }) => {
 
   return (
     <div className={styles.wrapper}>
-      {posts.map((post) => (
-        <PostPreview key={post._id} postData={post} />
+      {posts.map((post, idx) => (
+        <PostPreview
+          key={post._id}
+          postData={post}
+          className="appear-anim"
+          style={{ "--delay": `${(idx + 1) * 500}ms`, opacity: 0 }}
+        />
       ))}
     </div>
   );

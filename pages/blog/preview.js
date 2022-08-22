@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
+import { FiExternalLink } from "react-icons/fi";
 
 import styles from "../../styles/BlogPreview.module.css";
 import { customToast } from "../../utils/customToast";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import PostPreview from "../../components/Blog/PostPreview";
+import FormButton from "../../components/FormElements/FormButton";
 
 const BlogPreview = () => {
   const [posts, setPosts] = useState([]);
@@ -45,9 +47,22 @@ const BlogPreview = () => {
             <span>Recent Blog Posts</span>
           </h1>
           <div className={styles.postsContainer}>
-            {posts.map((pst) => (
-              <PostPreview key={pst._id} postData={pst} />
+            {posts.map((pst, idx) => (
+              <PostPreview
+                key={pst._id}
+                postData={pst}
+                className="appear-anim"
+                style={{ "--delay": `${(idx + 1) * 500}ms`, opacity: 0 }}
+              />
             ))}
+          </div>
+
+          <div className={styles.action}>
+            <FormButton isLink href="/blog">
+              <span className={styles.more}>
+                See all blog posts <FiExternalLink />
+              </span>
+            </FormButton>
           </div>
         </>
       )}

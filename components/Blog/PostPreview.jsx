@@ -6,11 +6,11 @@ import styles from "../../styles/PostPreview.module.css";
 import { postDateFormat } from "../../utils/format";
 import PostInfo from "./PostInfo";
 
-const PostPreview = ({ postData }) => {
+const PostPreview = ({ postData, className, style }) => {
   const router = useRouter();
 
   return (
-    <div className={styles.postCard}>
+    <div className={`${styles.postCard} ${className}`} style={style}>
       <div
         className={styles.thumbnail}
         onClick={() => router.push(`/blog/${postData.slug}`)}
