@@ -112,7 +112,6 @@ a {
 }
 
 .loading.active {
-  transition: opacity 1s, background-color 1s;
   pointer-events: all;
   opacity: 1;
   background-color: hsl(var(--black-700) / 95%);

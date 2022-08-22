@@ -46,12 +46,12 @@ export const technologies = {
 
 export const technologiesObj = {
   Bootstrap: "/images/technologies/bootstrap.svg",
-  CSS3: "/images/technologies/css3.svg",
+  CSS: "/images/technologies/css3.svg",
   Express: "/images/technologies/express.svg",
   Firebase: "/images/technologies/firebase.svg",
   Git: "/images/technologies/git.svg",
   Heroku: "/images/technologies/heroku.svg",
-  HTML5: "/images/technologies/html5.svg",
+  HTML: "/images/technologies/html5.svg",
   JavaScript: "/images/technologies/javascript.svg",
   "JSON Server": "/images/technologies/json-server.svg",
   MongoDB: "/images/technologies/mongodb.svg",
@@ -152,7 +152,7 @@ export const projectsData = {
       vertical2: "/images/projects/doelist-2.webp",
       wide: "/images/projects/doelist-wide.webp",
     },
-    tags: ["JavaScript", "Webpack", "Workbox"],
+    tags: ["HTML", "JavaScript", "Webpack", "Workbox"],
     links: {
       github: "https://github.com/cyanChill/Doelist",
       live: "https://doelist.netlify.app/",

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useRouter } from "next/router";
 import { FiExternalLink } from "react-icons/fi";
 
 import styles from "../../styles/BlogPreview.module.css";
@@ -9,6 +10,8 @@ import FormButton from "../../components/FormElements/FormButton";
 import SEO from "../../components/Optimizations/SEO";
 
 const BlogPreview = ({ posts: postsJSON }) => {
+  const router = useRouter();
+
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
@@ -45,7 +48,7 @@ const BlogPreview = ({ posts: postsJSON }) => {
               </h1>
 
               <div className={styles.action}>
-                <FormButton isLink href="/blog">
+                <FormButton onClick={() => router.push('/blog')}>
                   <span className={styles.more}>
                     See all blog posts <FiExternalLink />
                   </span>

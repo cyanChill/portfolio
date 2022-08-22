@@ -3,6 +3,7 @@
   display: grid;
   grid-template-columns: 100%;
   gap: 1.5rem;
+  overflow-y: hidden;
 }
 
 @media (min-width: 568px) {

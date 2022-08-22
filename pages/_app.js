@@ -6,7 +6,7 @@ import LayoutAreaProvider from "../context/layoutAreaContext";
 import useLoadingTransition from "../hooks/useLoadingTransition";
 
 import "../styles/globals.css";
-import { isPathBlogSection } from "../utils/routingHelper";
+import { isPathBlogSection } from "../utils/comparison";
 import CameraLayout from "../components/Layouts/CameraLayout";
 import FileSystemLayout from "../components/Layouts/FileSystemLayout";
 import LoadingSpinner from "../components/LoadingSpinner";

@@ -1,6 +1,6 @@
 import useLayoutAreaContext from "../../hooks/useLayoutAreaContext";
 
-import styles from "../../styles/Project.module.css";
+import styles from "../../styles/Projects.module.css";
 import { projectsData } from "../../data";
 import SEO from "../../components/Optimizations/SEO";
 

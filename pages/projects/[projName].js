@@ -35,7 +35,6 @@ const ProjectDetail = ({ project }) => {
         <div className={styles.imgContainer}>
           <div className={styles.wideImg}>
             <Image
-              className={styles.wideImg}
               src={projectInfo.thumbnail.wide}
               width="500"
               height="200"
@@ -80,7 +79,7 @@ const ProjectDetail = ({ project }) => {
               ))}
           </div>
 
-          <p className={styles.description}>{projectInfo.description}</p>
+          <p>{projectInfo.description}</p>
 
           <div className={styles.action}>
             {projectInfo.links.github && (

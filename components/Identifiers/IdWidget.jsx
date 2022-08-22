@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import styles from "../../styles/IdWidget.module.css";
+import styles from "../../styles/Identifiers.module.css";
 
 const IdWidget = ({ name, image }) => {
   return (

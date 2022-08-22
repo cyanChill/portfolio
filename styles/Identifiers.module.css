@@ -1,3 +1,16 @@
+/* Styling for IdTag component */
+.tag {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem;
+  font-size: 0.85rem;
+  border: 1px solid hsl(var(--off-white));
+  border-radius: 0.5rem;
+}
+
+/* Styling for IdWidget component */
 .widget {
   width: 5.25rem;
   height: 5.25rem;

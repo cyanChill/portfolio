@@ -5,15 +5,15 @@
   gap: 1rem;
 }
 
+.form > button {
+  width: 100%;
+}
+
 .formGroup {
   display: flex;
   gap: 0.5rem;
 }
 
 .formGroup > * {
-  width: 100%;
-}
-
-.form > button {
   width: 100%;
 }
