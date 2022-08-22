@@ -1,0 +1,23 @@
+.wrapper {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 100%;
+  gap: 1.5rem;
+}
+
+@media (min-width: 568px) {
+  .wrapper {
+    grid-template-columns: repeat(2, calc((100% - 1rem) / 2));
+    gap: 1rem;
+  }
+
+  .wrapper > :first-child {
+    grid-column: span 2;
+  }
+}
+
+@media (min-width: 868px) {
+  .wrapper {
+    grid-template-columns: repeat(3, calc((100% - 2rem) / 3));
+  }
+}

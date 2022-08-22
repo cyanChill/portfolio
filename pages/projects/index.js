@@ -22,7 +22,7 @@ const Project = () => {
             key={projName}
             onClick={() => changeView(`/projects/${projName}`)}
           >
-            <h2>{projName}</h2>
+            <h2>{projectsData[projName].title}</h2>
             <p>{projectsData[projName].description}</p>
           </div>
         ))}

@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 import { pagesData } from "../data";
+import { isPathBlogSection } from "../utils/routingHelper";
 
 const NavigationReducer = (state, action) => {
   switch (action.type) {
@@ -50,10 +51,7 @@ const NavigationContextProvider = ({ children }) => {
 
   useEffect(() => {
     // Ignore the blog-pages (excluding the blog preview)
-    if (
-      router.asPath.match(/(^\/blog$|^\/blog\/.*$)/) &&
-      !router.asPath.match(/\/blog\/preview/)
-    ) {
+    if (isPathBlogSection(router.asPath)) {
       setInitLoad(false);
       return;
     }

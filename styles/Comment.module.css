@@ -1,0 +1,28 @@
+.comment {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border: 1px solid hsl(var(--grey-300));
+}
+
+.comment > :first-child {
+  min-width: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-weight: 500;
+  font-size: clamp(0.9rem, 4vw, 1rem);
+}
+
+.date {
+  color: hsl(var(--grey-300));
+  font-size: clamp(0.75rem, 3vw, 0.85rem);
+  font-weight: 400;
+}
+
+.commentContent {
+  word-break: break-all;
+  color: hsl(var(--grey-300));
+  font-size: clamp(0.8rem, 3vw, 0.9rem);
+}

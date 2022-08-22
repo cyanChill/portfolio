@@ -46,6 +46,12 @@
   font-family: var(--font-family-mono);
 }
 
+/* Specify code font style */
+pre *,
+code * {
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace !important;
+}
+
 body,
 #__next {
   min-height: 100vh;

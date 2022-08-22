@@ -1,0 +1,19 @@
+.container,
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formGroup {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.formGroup > * {
+  width: 100%;
+}
+
+.form > button {
+  width: 100%;
+}
