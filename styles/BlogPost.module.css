@@ -32,6 +32,10 @@
   padding: 0.5rem;
 }
 
+.blogContent a:hover {
+  text-decoration: underline;
+}
+
 /* Update post button */
 .actions > * {
   width: 100%;

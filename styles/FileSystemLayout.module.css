@@ -41,7 +41,7 @@
   width: 100%;
   display: flex;
   border: 2px solid hsl(var(--off-white));
-  font-size: 1.25rem;
+  font-size: clamp(1rem, 3vw, 1.25rem);
 }
 
 .fsNav > * {
@@ -74,7 +74,7 @@
   color: hsl(var(--off-white));
 }
 
-.homeBtn:hover > :first-child {
+.homeBtn:hover > :last-child {
   opacity: 1;
 }
 
