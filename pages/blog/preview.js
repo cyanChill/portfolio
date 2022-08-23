@@ -81,6 +81,6 @@ import { getLatest3Posts } from "../../utils/services";
 export const getStaticProps = async (context) => {
   const posts = await getLatest3Posts();
 
-  // We'll try to re-generate the page at most once an hour
-  return { props: { posts: JSON.stringify(posts) }, revalidate: 60 * 60 };
+  // We'll try to re-generate the page at most once every 15 minutes
+  return { props: { posts: JSON.stringify(posts) }, revalidate: 60 * 15 };
 };
