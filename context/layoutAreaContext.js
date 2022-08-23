@@ -2,9 +2,10 @@
   Description:
     For controlling the content-area of the CameraLayout compoennt
 */
-import { createContext, useState, useRef } from "react";
+import { createContext, useState, useEffect, useRef } from "react";
 
 import useNavigationContext from "../hooks/useNavigationContext";
+import useLoadingTransition from "../hooks/useLoadingTransition";
 
 import styles from "../styles/CameraLayout.module.css";
 
@@ -12,6 +13,7 @@ export const LayoutAreaContext = createContext();
 
 const LayoutAreaProvider = ({ children }) => {
   const { dispatch } = useNavigationContext();
+  const { loading: transitioning } = useLoadingTransition();
 
   const contentAreaRef = useRef(null);
   const animRef = useRef(null);
@@ -26,7 +28,6 @@ const LayoutAreaProvider = ({ children }) => {
     contentAreaRef.current.classList.add(styles.close);
 
     animRef.current = setTimeout(() => {
-      contentAreaRef.current.classList.remove(styles.close);
       if (location) {
         dispatch({ type: "SET_LOCATION", payload: { path: location } });
       } else if (idx != null) {
@@ -35,6 +36,12 @@ const LayoutAreaProvider = ({ children }) => {
       setLoading(false);
     }, 1500);
   };
+
+  useEffect(() => {
+    if (!transitioning && contentAreaRef.current) {
+      contentAreaRef.current.classList.remove(styles.close);
+    }
+  }, [transitioning]);
 
   return (
     <LayoutAreaContext.Provider value={{ contentAreaRef, changeView, loading }}>
