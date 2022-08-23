@@ -13,7 +13,7 @@ const useLoadingTransition = () => {
       return url !== router.asPath && setLoading(true);
     };
     const handleComplete = (url) => {
-      setNextUrl(url);
+      setNextUrl("");
       return url === router.asPath && setLoading(false);
     };
 
