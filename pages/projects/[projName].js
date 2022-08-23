@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
 import styles from "../../styles/ProjectDetail.module.css";
 import { projectsData, technologiesObj } from "../../data";
@@ -7,16 +8,23 @@ import IdTag from "../../components/Identifiers/IdTag";
 import FormButton from "../../components/FormElements/FormButton";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import SEO from "../../components/Optimizations/SEO";
+import ErrorPage from "../404";
 
-const ProjectDetail = ({ project }) => {
-  const [projectInfo, setProjectInfo] = useState({});
+const ProjectDetail = () => {
+  const router = useRouter();
+
+  const [projectInfo, setProjectInfo] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setProjectInfo(project);
-  }, [project]);
+    setLoading(true);
+    const project = projectsData[router.query.projName];
+    if (project) setProjectInfo(project);
+    setLoading(false);
+  }, [router]);
 
-  // Only display page once local content is the same as fetched content
-  if (projectInfo !== project) return <LoadingSpinner />;
+  if (loading) return <LoadingSpinner />;
+  if (!loading && !projectInfo) return <ErrorPage />;
 
   return (
     <>
@@ -116,19 +124,3 @@ const ProjectDetail = ({ project }) => {
 };
 
 export default ProjectDetail;
-
-// Server-side code
-export const getStaticProps = async (context) => {
-  const project = projectsData[context.params.projName];
-  if (!project) return { notFound: true };
-  return { props: { project } };
-};
-
-export const getStaticPaths = async () => {
-  const paths = Object.keys(projectsData).map((pjtName) => ({
-    params: { projName: pjtName },
-  }));
-
-  // Prerender existing paths at build-time
-  return { paths: paths, fallback: false };
-};
