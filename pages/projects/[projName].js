@@ -121,9 +121,7 @@ export default ProjectDetail;
 export const getStaticProps = async (context) => {
   const project = projectsData[context.params.projName];
   if (!project) return { notFound: true };
-
-  // We'll try to re-generate the page at most once every 15 minutes
-  return { props: { project }, revalidate: 60 * 15 };
+  return { props: { project } };
 };
 
 export const getStaticPaths = async () => {
@@ -131,7 +129,6 @@ export const getStaticPaths = async () => {
     params: { projName: pjtName },
   }));
 
-  // Prerender existing paths at build-time; allows the server to render
-  // paths on demand with { fallback: "blocking" }
-  return { paths: paths, fallback: "blocking" };
+  // Prerender existing paths at build-time
+  return { paths: paths, fallback: false };
 };

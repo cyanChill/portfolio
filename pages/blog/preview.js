@@ -3,25 +3,36 @@ import { useRouter } from "next/router";
 import { FiExternalLink } from "react-icons/fi";
 
 import styles from "../../styles/BlogPreview.module.css";
-import { isSimilarArrObj } from "../../utils/comparison";
+import { customToast } from "../../utils/customToast";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import PostPreview from "../../components/Blog/PostPreview";
 import FormButton from "../../components/FormElements/FormButton";
 import SEO from "../../components/Optimizations/SEO";
 
-const BlogPreview = ({ posts: postsJSON }) => {
+const BlogPreview = () => {
   const router = useRouter();
 
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState(null);
 
   useEffect(() => {
-    setPosts(JSON.parse(postsJSON));
-  }, [postsJSON]);
+    const getPosts = async () => {
+      try {
+        const res = await fetch("/api/posts");
+        const data = await res.json();
+        if (res.ok) setPosts(data.posts);
+        else throw Error("Something went wrong.");
+      } catch (err) {
+        customToast(
+          "error",
+          "Something went wrong when fetching latest posts."
+        );
+      }
+    };
 
-  // Only display page once local content is the same as fetched content
-  if (!isSimilarArrObj(posts, JSON.parse(postsJSON))) {
-    return <LoadingSpinner />;
-  }
+    getPosts();
+  }, []);
+
+  if (!posts) return <LoadingSpinner />;
 
   return (
     <>
@@ -48,7 +59,7 @@ const BlogPreview = ({ posts: postsJSON }) => {
               </h1>
 
               <div className={styles.action}>
-                <FormButton onClick={() => router.push('/blog')}>
+                <FormButton onClick={() => router.push("/blog")}>
                   <span className={styles.more}>
                     See all blog posts <FiExternalLink />
                   </span>
@@ -74,13 +85,3 @@ const BlogPreview = ({ posts: postsJSON }) => {
 };
 
 export default BlogPreview;
-
-// Server-side code
-import { getLatest3Posts } from "../../utils/services";
-
-export const getStaticProps = async (context) => {
-  const posts = await getLatest3Posts();
-
-  // We'll try to re-generate the page at most once every 15 minutes
-  return { props: { posts: JSON.stringify(posts) }, revalidate: 60 * 15 };
-};
