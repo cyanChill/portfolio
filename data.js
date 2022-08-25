@@ -107,7 +107,7 @@ export const projectsData = {
     tags: ["NextJS", "MongoDB", "Firebase", "Heroku"],
     links: {
       github: "https://github.com/cyanChill/NextJS-Instagram",
-      live: "https://cyanchill-instagram.herokuapp.com/",
+      live: "https://cyangram.vercel.app/",
     },
   },
   gradschoolzero: {
