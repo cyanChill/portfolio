@@ -20,6 +20,7 @@ export const technologies = {
     { name: "HTML5", image: "/images/technologies/html5.svg" },
     { name: "CSS3", image: "/images/technologies/css3.svg" },
     { name: "JavaScript", image: "/images/technologies/javascript.svg" },
+    { name: "TypeScript", image: "/images/technologies/typescript.svg" },
     { name: "React", image: "/images/technologies/react.svg" },
     { name: "NextJS", image: "/images/technologies/nextjs.svg" },
     { name: "Bootstrap", image: "/images/technologies/bootstrap.svg" },
@@ -65,6 +66,7 @@ export const technologiesObj = {
   React: "/images/technologies/react.svg",
   "React-Router": "/images/technologies/react-router.svg",
   Sass: "/images/technologies/sass.svg",
+  TypeScript: "/images/technologies/typescript.svg",
   Webpack: "/images/technologies/webpack.svg",
   Workbox: "/images/technologies/workbox.svg",
 };
