@@ -2,17 +2,17 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 import Link from "next/link";
 
-import { BlogPostType } from "../../utils/types";
+import { BlogPostInterface } from "../../utils/types";
 
 import styles from "../../styles/PostPreview.module.css";
 import { postDateFormat } from "../../utils/format";
 import PostInfo from "./PostInfo";
 
-type PostPreviewProps = {
-  postData: BlogPostType;
+interface PostPreviewProps {
+  postData: BlogPostInterface;
   className?: string;
   style?: object;
-};
+}
 
 const PostPreview = ({ postData, className, style }: PostPreviewProps) => {
   const router = useRouter();

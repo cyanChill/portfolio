@@ -12,7 +12,7 @@ import "prismjs/components/prism-typescript";
 import "prismjs/components/prism-jsx";
 import "prismjs/components/prism-tsx";
 
-import { BlogPostType, BlogCommentType } from "../../utils/types";
+import { BlogPostInterface, BlogCommentInterface } from "../../utils/types";
 
 import styles from "../../styles/BlogPost.module.css";
 import { postDateTimeFormat } from "../../utils/format";
@@ -23,11 +23,13 @@ import CommentForm from "../../components/Blog/CommentForm";
 import Comment from "../../components/Blog/Comment";
 import SEO from "../../components/Optimizations/SEO";
 
-type BlogPostProps = { post: string };
+interface BlogPostProps {
+  post: string;
+}
 
 const BlogPost = ({ post: postJSON }: BlogPostProps) => {
-  const [post, setPost] = useState<BlogPostType>(null);
-  const [comments, setComments] = useState<BlogCommentType[]>([]);
+  const [post, setPost] = useState<BlogPostInterface>(null);
+  const [comments, setComments] = useState<BlogCommentInterface[]>([]);
 
   const getComments = async () => {
     try {

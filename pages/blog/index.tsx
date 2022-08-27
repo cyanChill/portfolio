@@ -1,17 +1,19 @@
 import { useState, useEffect } from "react";
 import { GetStaticProps } from "next";
 
-import { BlogPostType } from "../../utils/types";
+import { BlogPostInterface } from "../../utils/types";
 
 import styles from "../../styles/Blog.module.css";
 import PostPreview from "../../components/Blog/PostPreview";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import SEO from "../../components/Optimizations/SEO";
 
-type BlogDetailProps = { posts: string };
+interface BlogDetailProps {
+  posts: string;
+}
 
 const Blog = ({ posts: postsJSON }: BlogDetailProps) => {
-  const [posts, setPosts] = useState<BlogPostType[]>(null);
+  const [posts, setPosts] = useState<BlogPostInterface[]>(null);
 
   useEffect(() => {
     setPosts(JSON.parse(postsJSON));

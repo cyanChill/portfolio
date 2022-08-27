@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 
 import styles from "../../styles/FancyInput.module.css";
 
-type FancyInputProps = {
+interface FancyInputProps {
   className?: string;
   labelText?: string;
   [x: string]: any; // For all other props
-};
+}
 
 const FancyInput = ({ className, labelText, ...rest }: FancyInputProps) => {
   const [isFocused, setIsFocused] = useState(false);

@@ -1,13 +1,13 @@
-import { BlogCommentType } from "../../utils/types";
+import { BlogCommentInterface } from "../../utils/types";
 
 import styles from "../../styles/Comment.module.css";
 import { postDateTimeFormat } from "../../utils/format";
 
-type CommentProps = {
-  cmt: BlogCommentType;
+interface CommentProps {
+  cmt: BlogCommentInterface;
   className?: string;
   [x: string]: any; // For all other props
-};
+}
 
 const Comment = ({ cmt, className, ...rest }: CommentProps) => {
   return (

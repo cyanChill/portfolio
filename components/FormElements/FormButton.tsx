@@ -2,13 +2,13 @@ import React from "react";
 
 import styles from "../../styles/FormButton.module.css";
 
-type FormButtonProps = {
+interface FormButtonProps {
   isLink?: boolean;
   altBdr?: boolean;
   className?: string;
   children: React.ReactNode;
   [x: string]: any; // For all other props
-};
+}
 
 const FormButton = ({
   isLink,

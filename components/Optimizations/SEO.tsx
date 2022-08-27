@@ -3,13 +3,13 @@ import Head from "next/head";
 
 const DOMAIN = process.env.NEXT_PUBLIC_DOMAIN;
 
-type SEOProps = {
+interface SEOProps {
   title?: string;
   description?: string;
   pageName?: string;
   canocical?: string;
   ogType?: string;
-};
+}
 
 const SEO = ({
   title = "Anthony Liang",

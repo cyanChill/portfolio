@@ -2,10 +2,10 @@ import Image from "next/image";
 
 import styles from "../../styles/Identifiers.module.css";
 
-type IdWidgetProps = {
+interface IdWidgetProps {
   name: string;
   image: string;
-};
+}
 
 const IdWidget = ({ name, image }: IdWidgetProps) => {
   return (

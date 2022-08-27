@@ -6,6 +6,7 @@
 import React from "react";
 
 import useLayoutAreaContext from "../../hooks/useLayoutAreaContext";
+import { ReactChildren } from "../../utils/types";
 
 import styles from "../../styles/CameraLayout.module.css";
 import CaptureCorner from "./LayoutAssets/CaptureCorner";
@@ -15,11 +16,7 @@ import PageNavControls from "../Navigation/PageNavControls";
 import NavMenu from "../Navigation/NavMenu";
 import CopyrightInfo from "../CopyrightInfo";
 
-type CameraLayoutProps = {
-  children: React.ReactNode;
-};
-
-const CameraLayout = ({ children }: CameraLayoutProps) => {
+const CameraLayout = ({ children }: ReactChildren) => {
   const { contentAreaRef } = useLayoutAreaContext();
 
   return (

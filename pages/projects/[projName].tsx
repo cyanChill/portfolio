@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { useRouter } from "next/router";
 
-import { PortfolioProjectType } from "../../utils/types";
+import { PortfolioProjectInterface } from "../../utils/types";
 
 import styles from "../../styles/ProjectDetail.module.css";
 import { projectsData, technologiesObj } from "../../data";
@@ -15,12 +15,14 @@ import ErrorPage from "../404";
 const ProjectDetail = () => {
   const router = useRouter();
 
-  const [projectInfo, setProjectInfo] = useState<PortfolioProjectType>(null);
+  const [projectInfo, setProjectInfo] =
+    useState<PortfolioProjectInterface>(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setLoading(true);
-    const project: PortfolioProjectType = projectsData[router.query.projName];
+    const project: PortfolioProjectInterface =
+      projectsData[router.query.projName];
     if (project) setProjectInfo(project);
     setLoading(false);
   }, [router]);

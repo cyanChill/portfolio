@@ -3,18 +3,16 @@
     Layout used for the blog pages (excluding the /blog/preview route)
     once this feature is implemented
 */
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { BsHouse, BsHouseFill } from "react-icons/bs";
 
+import { ReactChildren } from "../../utils/types";
+
 import styles from "../../styles/FileSystemLayout.module.css";
 
-type FileSystemLayoutProps = {
-  children: React.ReactNode;
-};
-
-const FileSystemLayout = ({ children }: FileSystemLayoutProps) => {
+const FileSystemLayout = ({ children }: ReactChildren) => {
   const router = useRouter();
 
   const [crumbs, setCrumbs] = useState([]);

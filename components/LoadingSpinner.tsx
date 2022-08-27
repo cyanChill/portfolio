@@ -1,10 +1,10 @@
 import styles from "../styles/LoadingSpinner.module.css";
 
-type LoadingSpinnerProps = {
+interface LoadingSpinnerProps {
   size?: string;
   thickness?: string;
   fullWidth?: boolean;
-};
+}
 
 const LoadingSpinner = ({
   size,

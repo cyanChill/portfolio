@@ -2,10 +2,10 @@ import Image from "next/image";
 
 import styles from "../../styles/PostInfo.module.css";
 
-type PostInfoProps = {
+interface PostInfoProps {
   date: string;
   spaceBetween?: boolean;
-};
+}
 
 const PostInfo = ({ date, spaceBetween }: PostInfoProps) => {
   return (

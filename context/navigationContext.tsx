@@ -10,14 +10,14 @@ import { ReactChildren } from "../utils/types";
 
 import { pagesData } from "../data";
 
-type ReducerState = {
+interface ReducerState {
   idx: number | undefined;
   numPages: number;
-};
-type ReducerAction = {
+}
+interface ReducerAction {
   type: string;
   payload: { path?: string; idx?: number };
-};
+}
 
 const NavigationReducer = (state: ReducerState, action: ReducerAction) => {
   switch (action.type) {

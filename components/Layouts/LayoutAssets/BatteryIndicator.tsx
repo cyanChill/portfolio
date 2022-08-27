@@ -1,9 +1,9 @@
 import styles from "../../../styles/LayoutAssets.module.css";
 
-type BatteryIndicatorProps = {
+interface BatteryIndicatorProps {
   className?: string;
   style?: object;
-};
+}
 
 const BatteryIndicator = ({ className, style }: BatteryIndicatorProps) => {
   return (

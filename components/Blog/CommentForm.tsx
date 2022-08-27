@@ -4,9 +4,9 @@ import styles from "../../styles/CommentForm.module.css";
 import StyledInput from "../FormElements/StyledInput";
 import FormButton from "../FormElements/FormButton";
 
-type CommentFormProp = {
+interface CommentFormProp {
   onSubmit: (name: string, email: string, comment: string) => Promise<boolean>;
-};
+}
 
 const CommentForm = ({ onSubmit }: CommentFormProp) => {
   const [name, setName] = useState("");

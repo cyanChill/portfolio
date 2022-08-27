@@ -2,13 +2,13 @@ import React from "react";
 
 import styles from "../../../styles/LayoutAssets.module.css";
 
-type CaptureCornerProps = {
+interface CaptureCornerProps {
   size?: string;
   thickness?: string;
   rotDeg?: number;
   className?: string;
   style?: object;
-};
+}
 
 const CaptureCorner = ({
   size = "3rem",

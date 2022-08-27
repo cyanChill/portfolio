@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { FiExternalLink } from "react-icons/fi";
 
-import { BlogPostType } from "../../utils/types";
+import { BlogPostInterface } from "../../utils/types";
 
 import styles from "../../styles/BlogPreview.module.css";
 import { customToast } from "../../utils/customToast";
@@ -14,7 +14,7 @@ import SEO from "../../components/Optimizations/SEO";
 const BlogPreview = () => {
   const router = useRouter();
 
-  const [posts, setPosts] = useState<BlogPostType[]>(null);
+  const [posts, setPosts] = useState<BlogPostInterface[]>(null);
 
   useEffect(() => {
     const getPosts = async () => {

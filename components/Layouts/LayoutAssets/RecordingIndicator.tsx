@@ -2,10 +2,10 @@ import React from "react";
 
 import styles from "../../../styles/LayoutAssets.module.css";
 
-type RecordingIndicatorProps = {
+interface RecordingIndicatorProps {
   className?: string;
   style?: object;
-};
+}
 
 const RecordingIndicator = ({ className, style }: RecordingIndicatorProps) => {
   return (

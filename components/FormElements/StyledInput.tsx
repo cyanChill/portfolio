@@ -1,10 +1,10 @@
 import styles from "../../styles/StyledInput.module.css";
 
-type StyledInputProps = {
-  className?: string,
-  type?: string,
-  [x: string]: any, // For all other props
-};
+interface StyledInputProps {
+  className?: string;
+  type?: string;
+  [x: string]: any; // For all other props
+}
 
 const StyledInput = ({ className, type, ...rest }: StyledInputProps) => {
   const inputClasses = `${styles.styledInput} ${className}`;
